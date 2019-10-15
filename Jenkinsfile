@@ -1,6 +1,6 @@
 #!groovy
 import groovy.json.JsonSlurperClassic
-node {
+//node {
 
 pipeline {
     agent { label 'master' }
@@ -62,4 +62,4 @@ pipeline {
             println(rmsg)
         }
     }*/
-}
+//}

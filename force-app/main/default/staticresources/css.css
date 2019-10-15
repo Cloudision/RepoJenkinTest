@@ -1,0 +1,64 @@
+@page {
+ margin-top: 300px;
+ margin-bottom: 60px;
+ 
+   
+    
+
+@top-center {
+
+content: element(header);
+
+}
+
+@bottom-left {
+
+    content: element(footer);
+
+}
+
+}
+
+div.header {
+
+
+
+position: running(header);
+
+}   
+
+div.footer {
+
+display: block;
+
+padding: 5px;
+
+position: running(footer);
+
+}
+
+ 
+
+.pagenumber:before {
+
+content: counter(page);
+
+}
+
+.pagecount:before {
+
+content: counter(pages);
+ 
+} 
+
+ @media print{
+table{
+
+    
+    page-break-inside:auto ;
+            
+
+}
+tr    { page-break-inside:avoid; page-break-before:auto page-break-after:auto }
+
+}

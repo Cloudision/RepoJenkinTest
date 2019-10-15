@@ -16,7 +16,7 @@ node {
     println HUB_ORG_DH
     println SFDC_HOST_DH
     println CONNECTED_APP_CONSUMER_KEY_DH
-    def toolbelt = tool 'sfdx'
+    def toolbelt = tool 'toolbelt'
 
     stage('checkout source') {
         // when running in multi-branch job, one must issue this command

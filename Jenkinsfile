@@ -38,12 +38,12 @@ pipeline {
     }
 
     withCredentials([file(credentialsId: JWT_CRED_ID_DH, variable: 'jwt_key_file')]) {
-        stage('Deploye Code') {
+        stage('Deploy Code') {
             if (isUnix()) {
-                rc = bat returnStatus: true, script: "\"${toolbelt}\" force:auth:jwt:grant -u ${HUB_ORG_DH} -f \"${jwt_key_file}\" -i ${CONNECTED_APP_CONSUMER_KEY_DH} -r ${SFDC_HOST_DH}"
+             sh   rc = bat returnStatus: true, script: "\"${toolbelt}\" force:auth:jwt:grant -u ${HUB_ORG_DH} -f \"${jwt_key_file}\" -i ${CONNECTED_APP_CONSUMER_KEY_DH} -r ${SFDC_HOST_DH}"
 
             }else{
-                 rc = bat returnStatus: true, script: "\"${toolbelt}\" force:auth:jwt:grant -u ${HUB_ORG_DH} -f \"${jwt_key_file}\" -i ${CONNECTED_APP_CONSUMER_KEY_DH} -r ${SFDC_HOST_DH}"
+             sh    rc = bat returnStatus: true, script: "\"${toolbelt}\" force:auth:jwt:grant -u ${HUB_ORG_DH} -f \"${jwt_key_file}\" -i ${CONNECTED_APP_CONSUMER_KEY_DH} -r ${SFDC_HOST_DH}"
 
             }
             if (rc != 0) { error 'hub org authorization failed' }
@@ -52,7 +52,7 @@ pipeline {
 			
 			// need to pull out assigned username
 			if (isUnix()) {
-				rmsg = sh returnStdout: true, script: "${toolbelt} force:mdapi:deploy -d manifest/. -u ${HUB_ORG_DH}"
+			sh	rmsg = sh returnStdout: true, script: "${toolbelt} force:mdapi:deploy -d manifest/. -u ${HUB_ORG_DH}"
 			}else{
 			   rmsg = bat returnStdout: true, script: "\"${toolbelt}\" force:mdapi:deploy -d manifest/. -u ${HUB_ORG_DH}"
 			}

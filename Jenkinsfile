@@ -26,7 +26,8 @@ node {
     withCredentials([file(credentialsId: JWT_CRED_ID_DH, variable: 'jwt_key_file')]) {
         stage('Deploye Code') {
             if (isUnix()) {
-                rc = sh returnStatus: true, script: "${toolbelt} force:auth:jwt:grant --clientid ${CONNECTED_APP_CONSUMER_KEY_DH} --username ${HUB_ORG_DH} --jwtkeyfile ${jwt_key_file} --setdefaultdevhubusername --instanceurl ${SFDC_HOST_DH}"
+                rc = bat returnStatus: true, script: "\"${toolbelt}\" force:auth:jwt:grant -u ${HUB_ORG_DH} -f \"${jwt_key_file}\" -i ${CONNECTED_APP_CONSUMER_KEY_DH} -r ${SFDC_HOST_DH}"
+
             }else{
                  rc = bat returnStatus: true, script: "\"${toolbelt}\" force:auth:jwt:grant -u ${HUB_ORG_DH} -f \"${jwt_key_file}\" -i ${CONNECTED_APP_CONSUMER_KEY_DH} -r ${SFDC_HOST_DH}"
 

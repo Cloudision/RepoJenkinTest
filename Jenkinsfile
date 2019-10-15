@@ -2,7 +2,21 @@
 import groovy.json.JsonSlurperClassic
 node {
 
-    def BUILD_NUMBER=env.BUILD_NUMBER
+pipeline {
+    agent { label 'master' }
+    stages {
+        stage('build') {
+            steps {
+                echo "Hello World!"
+                sh "echo Hello from the shell"
+                sh "hostname"
+                sh "uptime"
+            }
+        }
+    }
+}
+
+    /*def BUILD_NUMBER=env.BUILD_NUMBER
     def RUN_ARTIFACT_DIR="tests/${BUILD_NUMBER}"
     def SFDC_USERNAME
 
@@ -47,5 +61,5 @@ node {
             println('Hello from a Job DSL script!')
             println(rmsg)
         }
-    }
+    }*/
 }

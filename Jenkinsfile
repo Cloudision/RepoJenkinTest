@@ -1,22 +1,9 @@
 #!groovy
 import groovy.json.JsonSlurperClassic
-//node {
+node {
 
-pipeline {
-    agent { label 'master' }
-    stages {
-        stage('build') {
-            steps {
-                echo "Hello World!"
-                sh "echo Hello from the shell"
-                sh "hostname"
-                sh "uptime"
-            }
-        }
-    }
-}
 
-    /*def BUILD_NUMBER=env.BUILD_NUMBER
+    def BUILD_NUMBER=env.BUILD_NUMBER
     def RUN_ARTIFACT_DIR="tests/${BUILD_NUMBER}"
     def SFDC_USERNAME
 
@@ -36,7 +23,7 @@ pipeline {
         // when running in multi-branch job, one must issue this command
         checkout scm
     }
-
+    
     withCredentials([file(credentialsId: JWT_CRED_ID_DH, variable: 'jwt_key_file')]) {
         stage('Deploy Code') {
             if (isUnix()) {
@@ -61,5 +48,11 @@ pipeline {
             println('Hello from a Job DSL script!')
             println(rmsg)
         }
-    }*/
-//}
+    }
+    def command(script) {
+    if (isUnix()) {
+        return sh(returnStatus: true, script: script);
+    } else {
+        return bat(returnStatus: true, script: script);
+    }
+}

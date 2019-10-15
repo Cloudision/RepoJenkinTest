@@ -6,17 +6,17 @@ node {
     def RUN_ARTIFACT_DIR="tests/${BUILD_NUMBER}"
     def SFDC_USERNAME
 
-    def  HUB_ORG_DH=aasif.sfdc@gmail.com
-    def SFDC_HOST_DH=https://asiftech-dev-ed.my.salesforce.com
-    def CONNECTED_APP_CONSUMER_KEY_DH=3MVG9Y6d_Btp4xp5jXRtDdzWrG0fMO9_ITSbNJE7MQoiYm1MV_N3OxMDvKBDJOCclIGX_MaMIsBjICCM2nlOG
-    def JWT_CRED_ID_DH=e7f812f5-36e5-4c5f-801c-c283f19cf01c
+    def  HUB_ORG_DH="aasif.sfdc@gmail.com"
+    def SFDC_HOST_DH="https://asiftech-dev-ed.my.salesforce.com"
+    def CONNECTED_APP_CONSUMER_KEY_DH="3MVG9Y6d_Btp4xp5jXRtDdzWrG0fMO9_ITSbNJE7MQoiYm1MV_N3OxMDvKBDJOCclIGX_MaMIsBjICCM2nlOG"
+    def JWT_CRED_ID_DH="e7f812f5-36e5-4c5f-801c-c283f19cf01c"
 
     println 'KEY IS' 
     println JWT_KEY_CRED_ID
     println HUB_ORG
     println SFDC_HOST
     println CONNECTED_APP_CONSUMER_KEY
-    def toolbelt = tool 'sfdx'
+    def toolbelt = tool 'toolbelt'
 
     stage('checkout source') {
         // when running in multi-branch job, one must issue this command

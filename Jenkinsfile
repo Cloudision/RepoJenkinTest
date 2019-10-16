@@ -29,11 +29,11 @@ node {
 
              rmsg = sh returnStatus: true, script: "${toolbelt}/ force:org:create --definitionfile config/project-scratch-def.json --json --setdefaultusername"
            
-         /*   def jsonSlurper = new JsonSlurperClassic()
+            def jsonSlurper = new groovy.json.JsonSlurperClassic()
             def robj = jsonSlurper.parseText(rmsg)
             if (robj.status != 0) { error 'org creation failed: ' + robj.message }
             SFDC_USERNAME=robj.result.username
-            robj = null*/
+            robj = null
 
 
         }

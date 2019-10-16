@@ -27,7 +27,7 @@ node {
            // printf rc
            // if (rc != 0) { error 'hub org authorization failed' }
 
-             rmsg = sh returnStatus: true, script: "${toolbelt}/ force:org:create --definitionfile config/project-scratch-def.json --json --setdefaultusername"
+             rmsg = sh returnStdout: true, script: "${toolbelt}/ force:org:create --definitionfile config/project-scratch-def.json --json --setdefaultusername"
            
             def jsonSlurper = new groovy.json.JsonSlurperClassic()
             def robj = jsonSlurper.parseText(rmsg)

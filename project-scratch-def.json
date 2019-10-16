@@ -1,0 +1,15 @@
+{
+  "orgName": "TEI Scratch Org",
+  "edition": "Developer",
+  "features": ["MultiCurrency", "Communities"],
+  "language": "en_US",
+  "settings": {
+    "orgPreferenceSettings": {
+      "s1DesktopEnabled": true,
+      "translation": true
+    },
+    "quoteSettings": {
+      "enableQuote": true
+    }
+  }
+}

@@ -7,10 +7,10 @@ node {
     def SFDC_USERNAME
 
     
-    def  HUB_ORG="aasif.sfdc@gmail.com"
+    def HUB_ORG="aasif.sfdc@gmail.com"
     def SFDC_HOST="https://asiftech-dev-ed.my.salesforce.com"
     def CONNECTED_APP_CONSUMER_KEY="3MVG9Y6d_Btp4xp5jXRtDdzWrG0fMO9_ITSbNJE7MQoiYm1MV_N3OxMDvKBDJOCclIGX_MaMIsBjICCM2nlOG"
-    def JWT_CRED_ID="e7f812f5-36e5-4c5f-801c-c283f19cf01c"
+    def JWT_KEY_CRED_ID="e7f812f5-36e5-4c5f-801c-c283f19cf01c"
 
     def toolbelt = tool 'sfdx'
 

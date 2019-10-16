@@ -23,6 +23,8 @@ node {
         stage('Create Scratch Org') {
 
             rc = sh returnStatus: true, script: "${toolbelt}/ force:auth:jwt:grant -u ${HUB_ORG} -f \"${jwt_key_file}\" -i ${CONNECTED_APP_CONSUMER_KEY} -r ${SFDC_HOST}"
+
+            printf rc
            // if (rc != 0) { error 'hub org authorization failed' }
 
             // need to pull out assigned username

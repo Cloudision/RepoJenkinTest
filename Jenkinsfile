@@ -44,7 +44,7 @@ node {
                 error 'push failed'
             }
             // assign permset
-            rc = sh returnStatus: true, script: "${toolbelt}/sfdx force:user:permset:assign --targetusername ${SFDC_USERNAME} --sfdx_travis_ci"
+            rc = sh returnStatus: true, script: "${toolbelt}/ force:user:permset:assign --targetusername ${SFDC_USERNAME} --sfdx_travis_ci"
             if (rc != 0) {
                 error 'permset:assign failed'
             }

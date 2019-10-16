@@ -24,12 +24,12 @@ node {
 
             rc = sh returnStatus: true, script: "${toolbelt}/ force:auth:jwt:grant -u ${HUB_ORG} -f \"${jwt_key_file}\" -i ${CONNECTED_APP_CONSUMER_KEY} -r ${SFDC_HOST}"
 
-            printf rc
+           // printf rc
            // if (rc != 0) { error 'hub org authorization failed' }
 
             // need to pull out assigned username
             rmsg = sh returnStdout: true, script: "${toolbelt}/ force:org:create -f project-scratch-def.json -a MyScratchOrg"
-            printf rmsg
+            //printf rmsg
             def jsonSlurper = new JsonSlurperClassic()
             def robj = jsonSlurper.parseText(rmsg)
             if (robj.status != 0) { error 'org creation failed: ' + robj.message }
